@@ -14,19 +14,19 @@ A simple GTK4 3D model viewer. WiP.
 
 ## Building on Linux
 First you need to install dependencies:
-     * a C++20 compiler toolchain (tested with gcc and clang)
-     * cmake 
-     * pkgconf
-     * gtkmm-4.0 
-     * doxygen
+ - a C++20 compiler toolchain (tested with gcc and clang)
+ - cmake 
+ - pkgconf
+ - gtkmm-4.0 
+ - doxygen
       
 To build and run the app just run:
-    ``` ./build.sh ```
+    ` ./build.sh `
 
 for additional build options:
-    ``` ./build.sh --help ```
+    ` ./build.sh --help `
 
 ## Usage
 By default config is saved in $XDG_CONFIG_HOME/3DViewer.ini but config location can be overriden with -c/--config flag for example:
-    ``` ./3DViewer --config /home/user/Documents/myconfig.ini
+    `./3DViewer --config /home/user/Documents/myconfig.ini `
 
