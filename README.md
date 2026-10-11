@@ -18,7 +18,6 @@ First you need to install dependencies:
  - cmake 
  - pkgconf
  - gtkmm-4.0 
- - doxygen
       
 To build and run the app just run:
     ` ./build.sh `

@@ -148,8 +148,8 @@ add_custom_target(fmt
 	VERBATIM
 )
 
-find_program(DOXYGEN_PATH doxygen REQUIRED)
 add_custom_target(dvi 
+	find_program(DOXYGEN_PATH doxygen REQUIRED)
 	COMMAND ${DOXYGEN_PATH} ${CMAKE_SOURCE_DIR}/Doxyfile && mv html ${CMAKE_BINARY_DIR}/. 
 	WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
 	COMMAND wslview realpath ${CMAKE_BINARY_DIR}/html/index.html || xdg-open ${CMAKE_BINARY_DIR}/html/index.html
