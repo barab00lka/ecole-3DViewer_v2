@@ -1,0 +1,33 @@
+# Doxyfile 1.9.8
+
+
+# Название проекта и версия
+PROJECT_NAME           = "CPP4_3DViewer_v2.0"
+PROJECT_NUMBER         = 1.0.0
+
+# Где искать исходники (можно несколько путей через пробел)
+INPUT                  = gui model
+
+# Искать рекурсивно в подпапках
+RECURSIVE              = YES
+
+# Только C++ файлы
+FILE_PATTERNS          = *.cc *.h
+
+# Генерировать HTML
+GENERATE_HTML          = YES
+HTML_OUTPUT            = 
+
+# Не генерировать лишнее (опционально)
+GENERATE_LATEX         = NO
+GENERATE_RTF           = NO
+GENERATE_XML           = NO
+
+# Включать в документацию только элементы с комментариями
+EXTRACT_ALL            = NO
+EXTRACT_PRIVATE        = NO
+EXTRACT_STATIC         = NO
+
+# Диаграммы классов (если установлен Graphviz)
+HAVE_DOT               = NO
+UML_LOOK               = NO
