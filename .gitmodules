@@ -1,0 +1,6 @@
+[submodule "src/thirdparty/cgif"]
+	path = src/thirdparty/cgif
+	url = https://github.com/dloebl/cgif
+[submodule "src/thirdparty/fast_obj"]
+	path = src/thirdparty/fast_obj
+	url = https://github.com/thisistherk/fast_obj
