@@ -111,7 +111,7 @@ void GLRenderer::RenderFrame(model::SceneSettings* const cur_scene) {
   shader_.set_u_float3("uColor", style.col_vt.r, style.col_vt.g,
                        style.col_vt.b);
   shader_.set_u_float("uPointSize", style.vertex_size);
-
+  glEnable(GL_PROGRAM_POINT_SIZE);
   glDrawArrays(GL_POINTS, 0, vbo_vertex_count_);
 
 cleanup:

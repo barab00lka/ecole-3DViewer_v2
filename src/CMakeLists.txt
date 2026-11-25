@@ -250,11 +250,19 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
     install(DIRECTORY "${MINGW_SYSROOT}/share/icons"
         DESTINATION share
     )
-
+    # Compile schemas in the staged install tree during installation/packaging.
+    install(CODE "
+        execute_process(
+            COMMAND glib-compile-schemas ${MINGW_SYSROOT}/share/glib-2.0/schemas --strict
+            RESULT_VARIABLE result
+        )
+        if(NOT result EQUAL 0)
+            message(FATAL_ERROR \"glib-compile-schemas failed\")
+        endif()
+    ")
     install(DIRECTORY "${MINGW_SYSROOT}/share/glib-2.0/schemas"
         DESTINATION share/glib-2.0
     )
-
 	install(DIRECTORY "/tmp/Windows-10-Dark-master/"
 	    DESTINATION "${CMAKE_INSTALL_DATADIR}/themes/Windows10"
 	)
@@ -263,7 +271,6 @@ endif()
 set(CPACK_PACKAGE_NAME        "${PROJECT_NAME}")
 set(CPACK_PACKAGE_VERSION     "${PROJECT_VERSION}")
 set(CPACK_PACKAGE_DESCRIPTION "3D Viewer")
-set(CPACK_PACKAGE_CONTACT     "aleciari@21-school.ru, leannrac@21-school.ru")
 set(CPACK_GENERATOR "TGZ;ZIP")
 set(CPACK_SOURCE_GENERATOR "TGZ;ZIP")
 set(CPACK_SOURCE_IGNORE_FILES
