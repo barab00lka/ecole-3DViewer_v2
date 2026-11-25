@@ -2,38 +2,47 @@
 A simple GTK4 3D model viewer. 
 Currently a work in progress.
 
-## Building on Linux
-First you need to install dependencies:
+## Screenshots
+[![Screenshot](screenshots/image.png)](screenshots/image.png)
+[![Screenshot](screenshots/ak.png)](screenshots/ak.png)
+
+## Development builds
+Dependencies:
+ - make (gmake)
+
+To build natively on Linux you also need these:
  - a C++20 compiler toolchain (gcc / clang)
- - GNU make (gmake)
  - cmake 
  - pkgconf
  - gtkmm-4.0-dev 
       
-To build and run the app on Linux just run:
+Then just run:
 
 ```sh
 git clone --recurse-submodules https://github.com/barab00lka/ecole-3DViewer_v2.git
 cd ecole-3DViewer_v2/src
-make run
+make
 ```
 
-## Experimental native build for Windows
-To build a self-contained distribution for Windows:
+for list of additional options: ` make help `
 
- ```sh
- make cross-win
- ```
+## Release builds
+Releases are built in a Fedora container, so for this you need either Docker or Podman installed
+### Linux GNU libc
+
+```sh
+make glibc-release
+```
+
+### Experimental native build for Windows x86_64
+
+```sh
+make win64-release
+```
 > [!NOTE]
-> A Fedora container image with Mingw toolchain will be created and used for the build.
->
+> A Fedora container image with Mingw toolchain will be created and used for the build. You need ~2.5G free space for it.
 > An archive with a PE executable (3DViewer.exe) and all needed DLLs will be created in build directory on the host
-
-for additional build options: ` make help `
-
-## Screenshots
-[![Screenshot](screenshots/image.png)](screenshots/image.png)
-[![Screenshot](screenshots/ak.png)](screenshots/ak.png)
+> You might need to turn off Defender if you get DLL errors when running the app  
 
 ## Usage
 

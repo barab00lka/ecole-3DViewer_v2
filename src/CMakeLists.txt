@@ -6,7 +6,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/scripts/cmake)
 
 # Name of the project
-project(CPP_3DViewer VERSION 2.0.0)
+project(CPP_3DViewer VERSION 0.2.1)
 
 # Options
 option(BUILD_TESTS "Build tests" OFF)
