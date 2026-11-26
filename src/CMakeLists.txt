@@ -8,15 +8,13 @@ set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/scripts/cmake)
 # Name of the project
 project(CPP_3DViewer VERSION 0.2.1)
 
-# Options
-option(BUILD_TESTS "Build tests" OFF)
-# Platform detection
-if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
-    set(OS_LINUX ON)
-elseif(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
-    set(OS_MACOS ON)
-elseif(CMAKE_SYSTEM_NAME STREQUAL "Windows")
-    set(OS_WINDOWS ON)
+if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+	add_compile_options(
+		-fPIE
+		-fstack-protector-strong
+		-ftrapv
+		-flto
+	)
 endif()
 
 # Helper function to open URL/file in default browser
@@ -297,7 +295,8 @@ if (CMAKE_BUILD_TYPE STREQUAL "Coverage")
         BASE_DIRECTORY ${CMAKE_SOURCE_DIR}
         LCOV_ARGS --ignore-errors unused,inconsistent,inconsistent,mismatch 
         GENHTML_ARGS --ignore-errors mismatch
-        EXCLUDE "/usr/include/*"
+        EXCLUDE "/usr/*"
+        "${CMAKE_BUILD_DIR}/_deps"
         "${CMAKE_SOURCE_DIR}/thirdparty/*"
         "${CMAKE_SOURCE_DIR}/containers/*"
         "${CMAKE_SOURCE_DIR}/tests/*"
